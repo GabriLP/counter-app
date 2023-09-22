@@ -1,0 +1,83 @@
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+header {
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    justify-content:center;
+    font-weight: 700;
+    font-size: clamp(25px, 10vw, 80px);
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+}
+
+footer {
+    font-size: clamp(15px, 2vw, 20px);
+}
+
+#counter-display {
+    font-size: clamp(50px, 8vw, 100px);
+    font-weight: 700;
+    text-align: center;
+    padding: 1em 0;
+}
+
+#buttons {
+    align-items: center;
+    text-align: center;
+    font-size: clamp(15px, 5vw, 20px);
+}
+
+#increase-button, #decrease-button, #reset-button {
+    margin: 0.5rem;
+}
+
+
+@keyframes bounceAndScale {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.bounce {
+    animation: bounceAndScale 0.5s ease-in-out;
+    transform-origin: center;
+}
+
+#switch-background {
+    transition: background-color 0.5s ease
+}
+
+@media (max-width: 499px) {
+    label {
+        position: sticky;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem 1rem;
+    }
+}
