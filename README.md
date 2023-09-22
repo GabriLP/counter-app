@@ -11,9 +11,7 @@ A web app built with JavaScript, HTML, and CSS, featuring a count display with t
 - [Contributing](#contributing)
 
 ## Demo
-You can see a live demo of this app [here](#insert-demo-link).
-
-![Demo GIF](./demo.gif)
+You can see a live demo of this app [here] (https://gabrilp.github.io/counter-app/).
 
 ## Installation
 1. Clone this repository: git clone https://github.com/gabrilp/counter-app.git
