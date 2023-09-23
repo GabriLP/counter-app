@@ -82,4 +82,7 @@ footer {
         align-items: center;
         margin: 1rem;
     }
+    #counter-display {
+        padding: 0;
+    }
 }
