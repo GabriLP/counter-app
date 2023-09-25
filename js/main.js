@@ -1,10 +1,9 @@
 const counterDisplay = document.getElementById("counter-display");
-const increaseButton = document.getElementById("increase-button");
-const decreaseButton = document.getElementById("decrease-button");
-const resetButton = document.getElementById("reset-button");
 const darkModeSwitch = document.getElementById("dark-mode-switch");
 const toggleCircle = document.getElementById("toggle-circle");
 const switchBackground = document.getElementById("switch-background")
+const buttonContainer = document.getElementById('button-wrapper');
+const footer = document.getElementsByTagName('footer');
 
 let count = 0;
 
@@ -12,6 +11,48 @@ function updateCounter() {
     counterDisplay.textContent = count;
     bounceAnimation();
 }
+
+const increaseButton = document.createElement('button');
+increaseButton.textContent = 'Increase';
+increaseButton.id = 'increase-button';
+increaseButton.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+
+const decreaseButton = document.createElement('button');
+decreaseButton.textContent = 'Decrease';
+decreaseButton.id = 'decrease-button';
+decreaseButton.classList.add('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+
+const resetButton = document.createElement('button');
+resetButton.textContent = 'Reset';
+resetButton.id ='reset-button';
+resetButton.classList.add('bg-gray-500', 'hover:bg-gray-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+
+buttonContainer.appendChild(increaseButton);
+buttonContainer.appendChild(decreaseButton);
+buttonContainer.appendChild(resetButton);
+
+document.body.insertBefore(buttonContainer, footer[0]);
+
+buttonContainer.addEventListener('click', (event) => {
+    if (event.target === increaseButton) {
+        incrementCounter();
+    } else if (event.target === decreaseButton && count >= 1) {
+        decrementCounter();
+    } else if (event.target === resetButton) {
+        confirmReset();
+    }
+});
+
+function incrementCounter() {
+    count++;
+    updateCounter();
+}
+
+function decrementCounter() {
+    count--;
+    updateCounter();
+}
+
 
 function confirmReset() {
     const confirmReset = confirm("Are you sure you want to reset the count?");
@@ -42,21 +83,6 @@ function handleKeyboardShortcuts(event) {
 }
 
 document.addEventListener("keydown", handleKeyboardShortcuts);
-
-increaseButton.addEventListener("click", () => {
-    count++;
-    updateCounter();
-});
-
-decreaseButton.addEventListener("click", () => {
-    if (count >= 1) {
-        count--;
-    }
-    updateCounter();
-});
-
-resetButton.addEventListener("click", confirmReset);
-
 
 function bounceAnimation() {
     counterDisplay.classList.add('bounce');

@@ -41,16 +41,16 @@ footer {
     padding: 1em 0;
 }
 
-#buttons {
-    align-items: center;
+
+#increase-button, #decrease-button, #reset-button {
+    margin: 0.5rem;
     text-align: center;
     font-size: clamp(15px, 5vw, 20px);
 }
 
-#increase-button, #decrease-button, #reset-button {
-    margin: 0.5rem;
+#reset-button {
+ display: inline;
 }
-
 
 @keyframes bounceAndScale {
     0% {

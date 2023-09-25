@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Counter App</title>
-</head>
-<body class="h-screen bg-gray-100 dark:bg-gray-800">
-    <header>
-        <h1>CountMeIn!</h1>
-        <h2>An app to count on for its reliability 😁</h2>
-        <input type="checkbox" id="dark-mode-switch" class="hidden">
-        <label for="dark-mode-switch" class="cursor-pointer">
-            <div id="switch-background" class="w-14 h-7 rounded-full p-1 flex items-center">
-                <div id="toggle-circle" class="bg-white w-6 h-6 rounded-full shadow-md transform translate-x-0 transition-transform"></div>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="image/favicon.png" type="image/png">
+        <title>Counter App</title>
+    </head>
+    <body class="h-screen bg-gray-100 dark:bg-gray-800">
+        <header>
+            <h1>CountMeIn!</h1>
+            <h2>An app to count on for its reliability 😁</h2>
+            <input type="checkbox" id="dark-mode-switch" class="hidden">
+            <label for="dark-mode-switch" class="cursor-pointer">
+                <div id="switch-background" class="w-14 h-7 rounded-full p-1 flex items-center">
+                    <div id="toggle-circle" class="bg-white w-6 h-6 rounded-full shadow-md transform translate-x-0 transition-transform"></div>
+                </div>
         </label>
     </header>
     <div id="counter-display">0</div>
-    <div id="buttons">
-        <button id="increase-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Increase</button>
-        <button id="decrease-button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Decrease</button>
-        <button id="reset-button" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">Reset</button>
-    </div>
-
+    <div id="button-wrapper"></div>
     <footer class="text-center mt-8 text-gray-600">
         Made with <span class="text-red-600">❤️</span> from Gabriele
         <div class="mt-4">
@@ -37,7 +33,7 @@
             </a>
         </div>
     </footer>
-
+    
     <script src="js/main.js"></script>
 </body>
 </html>
