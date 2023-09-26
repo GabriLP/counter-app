@@ -7,25 +7,24 @@ const footer = document.getElementsByTagName('footer');
 
 let count = 0;
 
-function updateCounter() {
-    counterDisplay.textContent = count;
-    bounceAnimation();
+
+function createButton(tagName, textContent, dataId, ...classList) {
+    const button = document.createElement(tagName);
+    button.textContent = textContent;
+    button.dataset.id = dataId;
+    button.classList.add(...classList);
+    return button;
 }
 
-const increaseButton = document.createElement('button');
-increaseButton.textContent = 'Increase';
-increaseButton.id = 'increase-button';
-increaseButton.classList.add('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+const increaseButton = createButton('button', 'Increase', 'increase-button', 
+'bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
 
-const decreaseButton = document.createElement('button');
-decreaseButton.textContent = 'Decrease';
-decreaseButton.id = 'decrease-button';
-decreaseButton.classList.add('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+const decreaseButton = createButton('button', 'Decrease', 'decrease-button', 
+'bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
 
-const resetButton = document.createElement('button');
-resetButton.textContent = 'Reset';
-resetButton.id ='reset-button';
-resetButton.classList.add('bg-gray-500', 'hover:bg-gray-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+const resetButton = createButton('button', 'Reset', 'reset-button', 
+'bg-gray-500', 'hover:bg-gray-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-full')
+
 
 buttonContainer.appendChild(increaseButton);
 buttonContainer.appendChild(decreaseButton);
@@ -34,37 +33,43 @@ buttonContainer.appendChild(resetButton);
 document.body.insertBefore(buttonContainer, footer[0]);
 
 buttonContainer.addEventListener('click', (event) => {
-    if (event.target === increaseButton) {
-        incrementCounter();
-    } else if (event.target === decreaseButton && count >= 1) {
-        decrementCounter();
-    } else if (event.target === resetButton) {
-        confirmReset();
-    }
-});
+    const id = event.target.dataset.id;
+    
+    switch (id) {
+        case 'increase-button':
+            count++;
+            break;
 
-function incrementCounter() {
-    count++;
-    updateCounter();
-}
-
-function decrementCounter() {
-    count--;
-    updateCounter();
-}
-
-
-function confirmReset() {
-    const confirmReset = confirm("Are you sure you want to reset the count?");
-    if (confirmReset) {
-        count = 0;
+        case 'decrease-button':
+                if (count >= 1) {
+            count--;
+        }
+            break;
+        case 'reset-button':
+            confirmReset();
+            break;
+        }
+        
         updateCounter();
+    });
+    
+    
+    function updateCounter() {
+        counterDisplay.textContent = count;
+        bounceAnimation();
     }
-}
-
-function handleKeyboardShortcuts(event) {
-    switch (event.key) {
-        case "+":
+    
+    function confirmReset() {
+        const confirmReset = confirm("Are you sure you want to reset the count?");
+        if (confirmReset) {
+            count = 0;
+            updateCounter();
+        }
+    }
+    
+    function handleKeyboardShortcuts(event) {
+        switch (event.key) {
+            case "+":
             count++;
             break;
         case "-":
